@@ -386,12 +386,51 @@
             <h1 id="StackEdit数学公式"><a href="#StackEdit数学公式" class="headerlink" title="StackEdit数学公式"></a>StackEdit数学公式</h1><p>这里将展示如何用 <strong>StackEdit</strong>编写一些基本的数学公式。</p>
 <ul>
 <li>行内公式$y=\alpha_1$（希腊），$\mathbf{B}$（正体加粗），$\mathscr{C}$（剧本字体），$\mathcal{D}$（手写），$\mathfrak{E}$（德国）</li>
-<li>单行公式$$x= \int_0^1 \frac{y(t)}{5}{\rm d}t $$</li>
-<li>多行公式$$\begin{aligned}<br>H(Y|X)&amp; = \sum_{x\in X} p(x)H(Y|X)\<br>&amp; = -\sum_{x\in X} p(x)\sum_{y\in Y}p(y|x)\log p(y|x)\<br>&amp; = -\sum_{x\in X} \sum_{y\in Y}p(y,x)\log p(y|x)<br>\end{aligned}$$</li>
-<li>简单矩阵$$\begin{pmatrix}<br>1&amp;0&amp;0\<br>0&amp;1&amp;0\<br>0&amp;0&amp;1\<br>\end{pmatrix}$$</li>
-<li>复杂矩阵<br>$$\begin{bmatrix}<br>1 &amp; a _1 &amp; a _1 ^2 &amp; \cdots  &amp; a _1 ^n \<br>1 &amp; a _2 &amp; a _2 ^2 &amp; \cdots  &amp; a _2 ^n \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>1 &amp; a _n &amp; a _n ^2 &amp; \cdots &amp; a _n ^n \<br>\end{bmatrix}<br>$$</li>
-<li>表格$$\begin{array}{c|lll}<br>{↓}&amp;{a}&amp;{b}&amp;{c}\<br>\hline<br>{R_1}&amp;{c}&amp;{b}&amp;{a}\<br>{R_2}&amp;{b}&amp;{c}&amp;{c}\<br>\end{array}$$</li>
-<li>Maxwell方程组<br>$$<br>\begin{eqnarray}<br>\nabla\cdot\vec{E} &amp;=&amp; \frac{\rho}{\epsilon0} \<br>\nabla\cdot\vec{B} &amp;=&amp; 0 \<br>\nabla\times\vec{E} &amp;=&amp; -\frac{\partial B}{\partial t} \<br>\nabla\times\vec{B} &amp;=&amp; \mu0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)<br>\end{eqnarray}<br>$$</li>
+<li>单行公式<script type="math/tex">x= \int_0^1 \frac{y(t)}{5}{\rm d}t</script></li>
+<li><p>多行公式</p>
+<ul>
+<li><p>使用”aligned”:</p>
+<script type="math/tex; mode=display">\begin{aligned}
+H(Y|X)& = \sum_{x\in X} p(x)H(Y|X)\\
+& = -\sum_{x\in X} p(x)\sum_{y\in Y}p(y|x)\log p(y|x)\\
+& = -\sum_{x\in X} \sum_{y\in Y}p(y,x)\log p(y|x)
+\end{aligned}</script></li>
+<li><p>使用”equation+split”:</p>
+<script type="math/tex; mode=display">
+\begin{equation}\begin{split}
+H(Y|X)&=\sum_{x\in X} p(x)H(Y|X)\\
+&=-\sum_{x\in X} p(x)\sum_{y\in Y}p(y|x)\log p(y|x)\\
+&=-\sum_{x\in X} \sum_{y\in Y}p(y,x)\log p(y|x)
+\end{split}\end{equation}</script></li>
+<li>使用”eqnarray”:(Maxwell equs)<script type="math/tex; mode=display">
+\begin{eqnarray}
+\nabla\cdot\vec{E} &=& \frac{\rho}{\epsilon0} \\
+\nabla\cdot\vec{B} &=& 0 \\
+\nabla\times\vec{E} &=& -\frac{\partial B}{\partial t} \\
+\nabla\times\vec{B} &=& \mu0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)
+\end{eqnarray}</script></li>
+</ul>
+</li>
+<li><p>简单矩阵</p>
+<script type="math/tex; mode=display">\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1\\
+\end{pmatrix}</script></li>
+<li><p>复杂矩阵</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+1 & a _1 & a _1 ^2 & \cdots  & a _1 ^n \\
+1 & a _2 & a _2 ^2 & \cdots  & a _2 ^n \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & a _n & a _n ^2 & \cdots & a _n ^n \\
+\end{bmatrix}</script></li>
+<li><p>表格</p>
+<script type="math/tex; mode=display">\begin{array}{c|lll}
+{↓}&{a}&{b}&{c}\\
+\hline
+{R_1}&{c}&{b}&{a}\\
+{R_2}&{b}&{c}&{c}\\
+\end{array}</script></li>
 </ul>
 <h2 id="Create-files-and-folders"><a href="#Create-files-and-folders" class="headerlink" title="Create files and folders"></a>Create files and folders</h2><p>The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the <strong>New file</strong> button in the file explorer. You can also create folders by clicking the <strong>New folder</strong> button.</p>
 <h2 id="Switch-to-another-file"><a href="#Switch-to-another-file" class="headerlink" title="Switch to another file"></a>Switch to another file</h2><p>All your files are listed in the file explorer. You can switch from one to another by clicking a file in the list.</p>
@@ -437,6 +476,7 @@
 <p><strong>ProTip:</strong> You can disable any <strong>Markdown extension</strong> in the <strong>File properties</strong> dialog.</p>
 </blockquote>
 <h2 id="SmartyPants"><a href="#SmartyPants" class="headerlink" title="SmartyPants"></a>SmartyPants</h2><p>SmartyPants converts ASCII punctuation characters into “smart” typographic punctuation HTML entities. For example:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -459,14 +499,15 @@
 <tr>
 <td>Dashes</td>
 <td><code>-- is en-dash, --- is em-dash</code></td>
-<td>– is en-dash, — is em-dash</td>
+<td>— is en-dash, —- is em-dash</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="KaTeX"><a href="#KaTeX" class="headerlink" title="KaTeX"></a>KaTeX</h2><p>You can render LaTeX mathematical expressions using <a href="https://khan.github.io/KaTeX/" target="_blank" rel="noopener">KaTeX</a>:</p>
 <p>The <em>Gamma function</em> satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral</p>
-<p>$$<br>\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.<br>$$</p>
-<blockquote>
+<script type="math/tex; mode=display">
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.</script><blockquote>
 <p>You can find more information about <strong>LaTeX</strong> mathematical expressions <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">here</a>.</p>
 </blockquote>
 <h2 id="UML-diagrams"><a href="#UML-diagrams" class="headerlink" title="UML diagrams"></a>UML diagrams</h2><p>You can render UML diagrams using <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">Mermaid</a>. For example, this will produce a sequence diagram:</p>
