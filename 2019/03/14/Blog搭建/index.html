@@ -19,7 +19,6 @@
 
 
 
-
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -78,6 +77,21 @@
 
 
 
+<script>
+    (function () {
+        if ('123321') {
+            if (prompt('请输入文章密码') !== '123321') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
 
 <meta name="description" content="本文将简略介绍利用Github和Hexo搭建本地Blog的方法。需要注意，请按照文中各部分给出的链接进行搭建，以免踩坑。本文框架为：  基本准备； 搭建流程； 配置Hexo完善Blog。">
 <meta name="keywords" content="Hexo">
@@ -87,7 +101,7 @@
 <meta property="og:site_name" content="HUAG ZONE">
 <meta property="og:description" content="本文将简略介绍利用Github和Hexo搭建本地Blog的方法。需要注意，请按照文中各部分给出的链接进行搭建，以免踩坑。本文框架为：  基本准备； 搭建流程； 配置Hexo完善Blog。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-21T16:45:59.000Z">
+<meta property="og:updated_time" content="2019-08-21T17:05:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+Github搭建Blog">
 <meta name="twitter:description" content="本文将简略介绍利用Github和Hexo搭建本地Blog的方法。需要注意，请按照文中各部分给出的链接进行搭建，以免踩坑。本文框架为：  基本准备； 搭建流程； 配置Hexo完善Blog。">
@@ -484,7 +498,7 @@
   <p><span>本文标题:</span><a href="/2019/03/14/Blog搭建/">Hexo+Github搭建Blog</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Huag 的个人博客">Huag</a></p>
   <p><span>发布时间:</span>2019年03月14日 - 00:00</p>
-  <p><span>最后更新:</span>2019年08月22日 - 00:45</p>
+  <p><span>最后更新:</span>2019年08月22日 - 01:05</p>
   <p><span>原始链接:</span><a href="/2019/03/14/Blog搭建/" title="Hexo+Github搭建Blog">http://yoursite.com/2019/03/14/Blog搭建/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/03/14/Blog搭建/" aria-label="复制成功！"></i></span>
   </p>

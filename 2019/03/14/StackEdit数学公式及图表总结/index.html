@@ -19,7 +19,6 @@
 
 
 
-
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
@@ -77,6 +76,21 @@
 
 
 
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
 <meta name="description" content="Hexo博文的编写主要基于Markdown语言。StackEdit作为一款在线Markdown编写程序，有强大的数学兼容性，后续文章的编辑主要依靠StackEdit和Mou完成。这里将展示如何用 StackEdit编写：  基本数学公式； 简单图表。">
