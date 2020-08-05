@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[CCG第二次作业]]></title>
     <url>%2F2020%2F08%2F05%2FCCGhw-2%2F</url>
-    <content type="text"><![CDATA[2020年暑假，顾险峰教授于线上讲授计算共形几何系列课程，本文记录了第二次作业的实现过程。本文框架： 代码环境配置； 代码补全思路。 代码环境配置代码环境配置与第一次相同 下载，解压，CMake代码； 补全 HarmonicMap.cpp 文件，并在 Xcode 中 build项目； 打开 Terminal，cd 至 /build/harmonic_map，输入 ./Debug/HarmonicMap ../../data/girl.m 即可看到如下结果 Harmonic map of girl.m (细密网格) Harmonic map of boy.m (稀疏网格) 代码补全思路第二次作业要求补全 HarmonicMap.cpp 文件。 数据结构与第一次作业相同，HarmonicMapMesh.h 定义了适用于 HarmonicMap.cpp 的点、边、半边、面的子类，并仍使用原有名称。 代码补全思路采用两种方法得到曲面到单位圆盘上的调和映射（harmonic map）。第一种方法（Iterative Algorithm）基于调和函数的均值定理，首先将源曲面边界依据弧长大小影射到单位圆盘上，然后遍历源曲面上所有内点，根据与一点相邻各边的余切权重，不断调整该点影射后的位置，直至算法收敛；第二种方法（Direct Algorithm）直接离散 Laplace-Beltrami 算子（流形上的Laplace），这等价于求解一个稀疏的线性方程组。 值得注意的是，在编写第二种方法（函数 map() ）时，需要小心线性方程组中元素的正负号问题。计算效率上，第二种方法的计算速度明显优于第一种方法。]]></content>
+    <content type="text"><![CDATA[2020年暑假，顾险峰教授于线上讲授计算共形几何系列课程，本文记录了第二次作业的实现过程。本文框架： 代码环境配置； 代码补全思路。 代码环境配置代码环境配置与第一次相同 下载，解压，CMake代码； 补全 HarmonicMap.cpp 文件，并在 Xcode 中 build项目； 打开 Terminal，cd 至 /build/harmonic_map，输入 ./Debug/HarmonicMap ../../data/girl.m 即可看到如下结果 &lt;/center &gt; Harmonic map of girl.m (细密网格) &lt;/center &gt; &lt;/center &gt; Harmonic map of boy.m (稀疏网格) &lt;/center &gt; 代码补全思路第二次作业要求补全 HarmonicMap.cpp 文件。 数据结构与第一次作业相同，HarmonicMapMesh.h 定义了适用于 HarmonicMap.cpp 的点、边、半边、面的子类，并仍使用原有名称。 代码补全思路采用两种方法得到曲面到单位圆盘上的调和映射（harmonic map）。第一种方法（Iterative Algorithm）基于调和函数的均值定理，首先将源曲面边界依据弧长大小影射到单位圆盘上，然后遍历源曲面上所有内点，根据与一点相邻各边的余切权重，不断调整该点影射后的位置，直至算法收敛；第二种方法（Direct Algorithm）直接离散 Laplace-Beltrami 算子（流形上的Laplace），这等价于求解一个稀疏的线性方程组。 值得注意的是，在编写第二种方法（函数 map() ）时，需要小心线性方程组中元素的正负号问题。计算效率上，第二种方法的计算速度明显优于第一种方法。]]></content>
       <categories>
         <category>Computational Conformal Geometry</category>
       </categories>
