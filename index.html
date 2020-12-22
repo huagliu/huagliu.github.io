@@ -95,7 +95,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="HUAG ZONE">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://huagliu.github.io/index.html">
 <meta property="og:site_name" content="HUAG ZONE">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://huagliu.github.io/">
 
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/Blog导读/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2019/03/14/Blog导读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -470,7 +470,181 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/09/Mac系统基本知识/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/12/13/安装及使用detri2软件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huag">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUAG ZONE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/12/13/安装及使用detri2软件/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+	
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-13T08:52:31+08:00">
+                2020-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  644
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.wias-berlin.de/people/si/detri2.html">detri2</a>可以在平面区域生成 delaunay triangulation，是 <a href="http://www.wias-berlin.de/people/si/">SI Hang 博士</a>开发的一款软件。</p>
+<h2 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h2><p>首先下载 <a href="https://download.qt.io/archive/qt/">QT v5.9.9</a>，选择安装组件 MinGW32，其他组件可以参考<a href="https://www.cnblogs.com/ybqjymy/p/14078054.html">详细过程</a>。打开 detri2.pro，进行<a href="https://blog.csdn.net/sksukai/article/details/105353483">构建配置和运行设置</a>，并将 MinGW32 的安装目录加入到系统环境变量中（此电脑—属性—环境变量—系统变量（Path）— 新建 C:\Qt\Qt5.9.9\Tools\mingw530_32\bin）。</p>
+<p>在 Windows 上直接构建和运行会报 “gmpxx.h not found” 这是因为没有在 MinGW 中安装 GMP库。</p>
+<p><strong>GMP</strong> 是一个开源的数学运算库，它可以用于任意精度的数学运算，包括有符号整数、有理数和浮点数，是进行大数运算比较好的选择。GMP 库只提供了一个 makefile 的文件，这意味着需要 gcc 环境支持。前面安装的 MinGW32 可以提供 gcc 环境，但是单独的 MinGW 不能编译 makefile 文件，要编译 makefile 文件，还需要安装 msys 工具，它可以在 Windows 下搭建一个类 linux 环境。详细安装过程可以参考<a href="https://suchideas.com/journal/2007/7/installing-gmp-on-windows">这个</a> 或者<a href="https://blog.csdn.net/onebluemorning/article/details/6566214">中文翻译</a>（没贴全），需要注意的是应下载 MSYS 1.0.11及以上版本（MSYS 1.0.10是大坑）。</p>
+<p>安装完 GMP 库后，在 .project 中添加外部库，<strong>注意</strong>按下图所示添加，否则会报 “no rule to make target”。</p>
+<p><img src="/2020/12/13/安装及使用detri2软件/win.png" alt></p>
+<p>安装完 GMP 后程序报错 “mpfr.h not found”，在 win 下尝试了几次添加 mpfr 库失败后，转用 Mac 系统安装 detri2。</p>
+<h2 id="Mac下安装"><a href="#Mac下安装" class="headerlink" title="Mac下安装"></a>Mac下安装</h2><p>下载并安装 QT（我用的是 <a href="https://download.qt.io/archive/qt/5.9/5.9.0/">v5.9.0</a>），安装时选择 macOS。在官网下载 <a href="https://gmplib.org/">GMP</a> 和 <a href="https://www.mpfr.org/mpfr-current/">MPFR</a>，将解压后的 gmp-6.2.1 和 mpfr-4.1.0 拷贝至 /usr/local。</p>
+<p>首先安装 GMP 库。打开Terminal，cd 至 gmp-6.2.1，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure --enable-cxx</span><br><span class="line">make</span><br><span class="line">make check</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
+<p>运行成功后，GMP 库就被安装在了 /usr/local/lib 和 /usr/local/include 中。</p>
+<p>接着，安装 MPFR 库。cd 至 mpfr-4.1.0，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure --disable-shared --enable-static --with-gmp=../gmp-6.2.1</span><br><span class="line">make</span><br><span class="line">make check</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>运行成果后，MPFR 库就被安装在了 /usr/local/lib 和 /usr/local/include 中。</p>
+<p>用 QT 打开 detri2qt.pro，这时项目就可以成功构建了。但在运行项目时，出现了如下问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dyld: Symbol not found: __cg_jpeg_resync_to_restart</span><br></pre></td></tr></table></figure>
+<p>通过查询得知，这是 OS X 上常见的 dyld issue，解决方法参考了<a href="https://stackoverflow.com/questions/38131011/qt-application-throws-dyld-symbol-not-found-cg-jpeg-resync-to-restart">这个</a>：</p>
+<p>在 QT 中点击 项目—&gt;运行—&gt;Run Environment (详情)。在 <strong>DYLD_LIBRARY_PATH</strong> 和 <strong>DYLD_FRAMEWORK_PATH</strong> 变量值前添加如下语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/Frameworks/ImageIO.framework/Resources:</span><br></pre></td></tr></table></figure>
+<p>之后运行项目即可得到下图的界面</p>
+<p><img src="/2020/12/13/安装及使用detri2软件/detri2.png" alt></p>
+<h2 id="使用-detri2"><a href="#使用-detri2" class="headerlink" title="使用 detri2"></a>使用 detri2</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/12/09/Mac系统基本知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -651,7 +825,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/C++大补丸3/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/08/05/C++大补丸3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -837,7 +1011,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/CCGhw-2/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/08/05/CCGhw-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -1022,7 +1196,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/C++大补丸2/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/08/05/C++大补丸2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -1210,7 +1384,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/C++大补丸1/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/07/24/C++大补丸1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -1398,7 +1572,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/CCGhw-1/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/07/24/CCGhw-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -1583,7 +1757,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/2019-8上海两日游/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2019/08/22/2019-8上海两日游/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -1764,7 +1938,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/Blog搭建/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2019/03/14/Blog搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -1937,194 +2111,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/Markdown数学公式及图表总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huag">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HUAG ZONE">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/14/Markdown数学公式及图表总结/" itemprop="url">Markdown数学公式及图表总结</a></h1>
-        
-
-        <div class="post-meta">
-	
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T00:00:00+08:00">
-                2019-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Hexo博文的编写主要基于<strong>Markdown</strong>语言。<strong>StackEdit</strong>作为一款在线<strong>Markdown</strong>编写程序，有强大的数学兼容性，后续文章的编辑主要依靠<strong>StackEdit</strong>和<strong>Typora（强烈推荐）</strong>完成。这里将展示如何用 <strong>Typora（强烈推荐）</strong>和<strong>StackEdit</strong>编写：</p>
-<ul>
-<li>基本数学公式；</li>
-<li>简单图表。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/14/Markdown数学公式及图表总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2168,7 +2161,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
