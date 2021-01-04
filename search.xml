@@ -96,6 +96,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Blog导读]]></title>
+    <url>%2F2019%2F03%2F14%2FBlog%E5%AF%BC%E8%AF%BB%2F</url>
+    <content type="text"><![CDATA[这是博客中的第一篇文章，在这里我将介绍： 开博客的目的 博文的整体框架。 开博客目的这个Blog将大致分为：“生活”、“学习”、“科研” 三大部分。其中，“生活” 部分将主要记录一些旅游和个人感悟；“学习” 部分将主要用于记录和整理一些课上笔记或者自学内容；“科研” 部分将介绍一些本领域内有趣的paper。]]></content>
+      <tags>
+        <tag>导读</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo+Github搭建Blog]]></title>
     <url>%2F2019%2F03%2F14%2FBlog%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[本文将简略介绍利用Github和Hexo搭建本地Blog的方法。需要注意，请按照文中各部分给出的链接进行搭建，以免踩坑。本文框架为： 基本准备； 搭建流程； 配置Hexo完善Blog； 发布／删除文章。 基本准备 申请一个Github账号，并以.github.io命名一个公开的repo； 在电脑上安装git、Node.js之后安装Hexo，参见Hexo官网。 搭建流程 初始化Hexo，尝试Hexo基本操作，并编写第一篇文章，详细过程参见Division By Zero； 装载新主题NexT（此过程中请务必在Blog根目录下进行）； 发布文章到网上，并添加SSH KEY，参见Division By Zero（请注意区分Blog目录下的“_config.yml”和themes/next下的“_config.yml”）； 配置NexT主题，添加个性化功能，例如：主题风格、搜索服务、添加标签、添加分类、评论功能等。 配置Hexo完善Blog对数学公式的支持Hexo博客主要基于Markdown语言，而在Markdown语言中输入数学公式一个比较好的方法是使用MathJax引擎。为了使博客支持MathJax，我们需要配置Hexo渲染MathJax中的数学公式，参见简书教程和Hexo博客使用MathJax。 插一句题外话，本地Markdown编译器我强烈推荐 Typora（手感顺滑，功能强大，开源），在线Markdown编译器我推荐StackEdit（可关联Github账号）。 MathJax中的语法类似Tex，一些基本的语法参见MathJax(Markdown中的公式)的基本使用语法。 对图片支持有时候博文中会配有图片或动图，因此我需要一个与md文件同名的文件夹来存放他们。这部分请参看Division By Zero。（需要注意，插入图片时图片地址应为“同名文件夹/image.jpeg”） 对流程图支持在Markdown中使用mermaid包，我们可以非常容易地画出流程图和顺序图。为了将这种方便延续到博客的写作中，我们需要配置Hexo来支持mermaid包。具体做法请参考TY·Loafer和hexo-filter-mermaid-diagrams。其中，TY·Loafer的代码有些问题，请同时参考上面两个链接中的方法，并使用后者提供的代码。 文章置顶及折叠要使文章置顶，需要装载新的Hexo模块并修改next中的设置，参见Hexo文章置顶。 要使文章折叠，可以在md文件的导语和正文之间添加：1&lt;!-- more --&gt; md文件的一般格式如下：123456789101112---title: XXXdate: 20XX-XX-XXtags: categories: mathjax: (是否使用MathJax)top: （文章是否置顶）copyright: true---（导语）&lt;!-- more --&gt;（正文） 可以在/scaffolds/post.md文件中修改好上述默认格式，之后每一次$ hexo new即可。 添加统计功能NexT主题中自带的busuanzi功能可以实现访客数与浏览数统计，参见Hexo使用不蒜子统计功能。 增加版权信息自己的劳动成果当然不想被他人窃取，在文章末尾添加版权信息是一种不错的保护自己的手段。参见hexo的next主题个性化配置教程之20。 文章加密访问有些私密文章，设置一些密码也是必须的。这里有两个参考教程：hexo的next主题个性化配置教程之20和Hexo文章简单加密访问。根据第二个教程，建议将代码放在所有的&lt;meta&gt;标签之后。 发布/删除文章发布文章将写好的Markdown文件拖入/Blog/source/_posts/，之后在当前目录下运行12$ hexo generate $ hexo server（生成本地预览） 删除文章在/Blog/source/_posts/中删除相关文件，之后运行123$ hexo clean $ hexo generate $ hexo server（生成本地预览） 草稿功能有时候想在网站中删除相关文章，而不删除相关Markdown文件，可以将此文件存入到“草稿”中。 创建草稿1$ hexo new draft &lt;title&gt; 这时，草稿将被保存在/Blog/source/_drafts/当中。 预览草稿草稿中的文件不会出现在网页中，但可以通过一下命令进行预览。1$ hexo server --draft 发布草稿运行以下代码，可将草稿中的文件移动到/Blog/source/_posts/当中。1$ hexo publish &lt;title&gt; 最后运行1$ hexo deploy 将文章部署到Github个人网站上。（也可简单的使用$ hexo d -g实现部署过程）]]></content>
@@ -104,14 +112,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Blog导读]]></title>
-    <url>%2F2019%2F03%2F14%2FBlog%E5%AF%BC%E8%AF%BB%2F</url>
-    <content type="text"><![CDATA[这是博客中的第一篇文章，在这里我将介绍： 开博客的目的 博文的整体框架。 开博客目的这个Blog将大致分为：“生活”、“学习”、“科研” 三大部分。其中，“生活” 部分将主要记录一些旅游和个人感悟；“学习” 部分将主要用于记录和整理一些课上笔记或者自学内容；“科研” 部分将介绍一些本领域内有趣的paper。]]></content>
-      <tags>
-        <tag>导读</tag>
       </tags>
   </entry>
   <entry>
