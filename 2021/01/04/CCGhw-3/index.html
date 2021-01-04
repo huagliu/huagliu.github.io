@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="C++基础,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -93,18 +93,20 @@
 </script>
 
 
-<meta name="description" content="编程小白在此整理一些C++基础知识。本文框架：  Mac 下快速设置 VScode launch.json C 运算符号 Eigen 库稀疏矩阵">
-<meta name="keywords" content="C++基础">
+<meta name="description" content="2020年暑假，顾险峰教授于线上讲授计算共形几何系列课程，本文记录了第三次作业的实现过程。本文框架：  代码环境配置； 代码补全思路。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++大补丸3">
-<meta property="og:url" content="http://huagliu.github.io/2020/08/05/C++大补丸3/index.html">
+<meta property="og:title" content="CCG第三次作业">
+<meta property="og:url" content="http://huagliu.github.io/2021/01/04/CCGhw-3/index.html">
 <meta property="og:site_name" content="HUAG ZONE">
-<meta property="og:description" content="编程小白在此整理一些C++基础知识。本文框架：  Mac 下快速设置 VScode launch.json C 运算符号 Eigen 库稀疏矩阵">
+<meta property="og:description" content="2020年暑假，顾险峰教授于线上讲授计算共形几何系列课程，本文记录了第三次作业的实现过程。本文框架：  代码环境配置； 代码补全思路。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-05T07:32:33.000Z">
+<meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/eight1.png">
+<meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/eight2.png">
+<meta property="og:updated_time" content="2021-01-04T15:03:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++大补丸3">
-<meta name="twitter:description" content="编程小白在此整理一些C++基础知识。本文框架：  Mac 下快速设置 VScode launch.json C 运算符号 Eigen 库稀疏矩阵">
+<meta name="twitter:title" content="CCG第三次作业">
+<meta name="twitter:description" content="2020年暑假，顾险峰教授于线上讲授计算共形几何系列课程，本文记录了第三次作业的实现过程。本文框架：  代码环境配置； 代码补全思路。">
+<meta name="twitter:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/eight1.png">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://huagliu.github.io/2020/08/05/C++大补丸3/">
+  <link rel="canonical" href="http://huagliu.github.io/2021/01/04/CCGhw-3/">
 
 
 
 
 
-  <title>C++大补丸3 | HUAG ZONE</title>
+  <title>CCG第三次作业 | HUAG ZONE</title>
   
 
 
@@ -308,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/08/05/C++大补丸3/">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2021/01/04/CCGhw-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huag">
@@ -325,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++大补丸3</h1>
+          <h1 class="post-title" itemprop="name headline">CCG第三次作业</h1>
         
 
         <div class="post-meta">
@@ -338,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-05T15:23:01+08:00">
-                2020-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-04T13:54:15+08:00">
+                2021-01-04
               </time>
             
 
@@ -361,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/Computational-Conformal-Geometry/" itemprop="url" rel="index">
+                    <span itemprop="name">Computational Conformal Geometry</span>
                   </a>
                 </span>
 
@@ -379,8 +381,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/08/05/C++大补丸3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/08/05/C++大补丸3/" itemprop="commentsCount"></span>
+                <a href="/2021/01/04/CCGhw-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2021/01/04/CCGhw-3/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -407,7 +409,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  851
+                  682
                 </span>
               
 
@@ -423,7 +425,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -444,48 +446,54 @@
       
 
       
-        <p>编程小白在此整理一些C++基础知识。<br>本文框架：</p>
+        <p>2020年暑假，顾险峰教授于线上讲授<a href="https://www3.cs.stonybrook.edu/~gu/lectures/2020/">计算共形几何系列课程</a>，本文记录了第三次作业的实现过程。<br>本文框架：</p>
 <ul>
-<li>Mac 下快速设置 VScode launch.json</li>
-<li>C 运算符号</li>
-<li>Eigen 库稀疏矩阵</li>
+<li>代码环境配置；</li>
+<li>代码补全思路。</li>
 </ul>
 <a id="more"></a>
-<h2 id="Mac-下快速设置-VScode-launch-json"><a href="#Mac-下快速设置-VScode-launch-json" class="headerlink" title="Mac 下快速设置 VScode launch.json"></a>Mac 下快速设置 VScode launch.json</h2><p>在 Mac 下，Xcode 是许多人的首选 IDE，但对于一些轻量级的 C++ 练习来说 Xcode 有些不方便。此时，我们可以选择 VScode 编写 C++ 代码，但是 VScode 只是一个文本编辑器，我们需要调用 g++ 或者 clang 进行编译，这时就要对编译过程进行配置。</p>
-<p>VSCode里有一个<a href="https://marketplace.visualstudio.com/items?itemName=webfreak.debug">Native Debug</a>插件能大大简化上述配置。</p>
-<p>使用方法：</p>
-<ul>
-<li>新建文件夹，将 .cpp 文件放入；</li>
-<li>Open folder，Run &amp; Debug；</li>
-<li>选择 C++(GDB/LLDB)，选择 g++；</li>
-</ul>
-<p>可以看到，自动生成了 .vscode 文件和 launch.json。</p>
-<h2 id="C-运算符号"><a href="#C-运算符号" class="headerlink" title="C 运算符号"></a><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/arithmetic-operators">C 运算符号</a></h2><h3 id="增量运算符（-）"><a href="#增量运算符（-）" class="headerlink" title="增量运算符（++）"></a>增量运算符（++）</h3><p>增量运算符以两种形式进行支持：后缀增量运算符 <code>x++</code> 和前缀增量运算符 <code>++x</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//output 3</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; a++ &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//output 3</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//output 4</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//output 3</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; ++b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//output 4</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//output 4</span></span><br></pre></td></tr></table></figure>
-<h3 id="复合赋值"><a href="#复合赋值" class="headerlink" title="复合赋值"></a>复合赋值</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x op= y </span><br><span class="line"><span class="comment">// 等效于</span></span><br><span class="line">x = x op y</span><br><span class="line"><span class="comment">// op 可以为 + - * / %</span></span><br></pre></td></tr></table></figure>
-<h3 id="计算优先级"><a href="#计算优先级" class="headerlink" title="计算优先级"></a>计算优先级</h3><p>优先级由高到低的顺序：</p>
-<ul>
-<li>后缀增量 <code>x++</code> 和减量 <code>x--</code> 运算符</li>
-<li>前缀增量 <code>++x</code> 和减量 <code>--x</code> 以及一元 <code>+</code> 和 <code>-</code> 运算符</li>
-<li>乘法 <code>*</code>、<code>/</code> 和 <code>%</code> 运算符</li>
-<li>加法 <code>+</code> 和 <code>-</code> 运算符</li>
-</ul>
-<h2 id="Eigen库稀疏矩阵"><a href="#Eigen库稀疏矩阵" class="headerlink" title="Eigen库稀疏矩阵"></a><a href="https://my.oschina.net/cvnote/blog/166980">Eigen库稀疏矩阵</a></h2><p>Eigen自带的稀疏矩阵分解功能包括LDLt、LLt分解（即Cholesky分解）、LU分解、QR分解、共轭梯度解矩阵等。</p>
-<h3 id="基本稀疏矩阵操作"><a href="#基本稀疏矩阵操作" class="headerlink" title="基本稀疏矩阵操作"></a>基本稀疏矩阵操作</h3><p>Eigen中使用 <code>Eigen::Triplet&lt;Scalar&gt;</code>来记录一个非零元素的行、列、值，填充一个稀疏矩阵，只需要将所有表示非零元素的Triplet放在一个 <code>std::vector</code>中即可传入即可。除了求逆等功能外，<code>Eigen::SparseMatrix</code>有和<code>Eigen::Matrix</code>几乎一样的各种成员操作函数，并且可以方便混用。</p>
-<p><strong>创建一个稀疏矩阵</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"eigen3/Eigen/Sparse"</span></span></span><br><span class="line"><span class="comment">// 创建矩阵：</span></span><br><span class="line">     <span class="comment">// 0 6.1 0   0</span></span><br><span class="line">     <span class="comment">// 0 0   7.2 0</span></span><br><span class="line">     <span class="comment">// 0 0   8.3 0</span></span><br><span class="line">     <span class="comment">// 0 0   0   0</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">( )</span> </span>&#123;</span><br><span class="line">     <span class="keyword">using</span> <span class="keyword">namespace</span> Eigen ;</span><br><span class="line">     SparseMatrix &lt; <span class="keyword">double</span> &gt; A ( <span class="number">4</span> , <span class="number">4</span> ) ;</span><br><span class="line">     <span class="built_in">std</span>::<span class="built_in">vector</span> &lt; Eigen::Triplet&lt;<span class="keyword">double</span>&gt; &gt; triplets ;</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">int</span> r [ <span class="number">3</span> ] = &#123; <span class="number">0</span> , <span class="number">1</span> , <span class="number">2</span> &#125; ;    <span class="comment">// 非零元素的行号</span></span><br><span class="line">     <span class="keyword">int</span> c [ <span class="number">3</span> ] = &#123; <span class="number">1</span> , <span class="number">2</span> , <span class="number">2</span> &#125; ;    <span class="comment">// 非零元素的列号</span></span><br><span class="line">     <span class="keyword">double</span> val [ <span class="number">3</span> ] = &#123; <span class="number">6.1</span> , <span class="number">7.2</span> , <span class="number">8.3</span> &#125; ;    <span class="comment">// 非零元素的值</span></span><br><span class="line">     <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">3</span> ; ++ i )</span><br><span class="line">          triplets.push_back(Eigen::Triplet&lt;<span class="keyword">double</span>&gt;(r[i], c[i], val[i])); <span class="comment">// 填充Triplet   </span></span><br><span class="line"> </span><br><span class="line">     A. setFromTriplets ( triplets.begin ( ) , triplets.end ( ) ) ;    <span class="comment">// 初始化系数矩阵</span></span><br><span class="line">     <span class="built_in">std</span> :: <span class="built_in">cout</span> &lt;&lt; <span class="string">"A = "</span> &lt;&lt; A &lt;&lt; <span class="built_in">std</span> :: <span class="built_in">endl</span> ; <span class="comment">// output稀疏表示</span></span><br><span class="line">     <span class="built_in">std</span> :: <span class="built_in">cout</span> &lt;&lt; <span class="string">"A * A = \n"</span> &lt;&lt; A * A &lt;&lt; <span class="built_in">std</span> :: <span class="built_in">endl</span> ; <span class="comment">// output普通表示</span></span><br><span class="line"> </span><br><span class="line">     MatrixXd B = A ;    <span class="comment">// 可以和普通稠密矩阵方便转换</span></span><br><span class="line">     <span class="built_in">std</span> :: <span class="built_in">cout</span> &lt;&lt; <span class="string">"B = \n"</span> &lt;&lt; B &lt;&lt; <span class="built_in">std</span> :: <span class="built_in">endl</span> ;</span><br><span class="line">     <span class="built_in">std</span> :: <span class="built_in">cout</span> &lt;&lt; <span class="string">"A * B = \n"</span> &lt;&lt; A * B &lt;&lt; <span class="built_in">std</span> :: <span class="built_in">endl</span> ;    <span class="comment">// 二者可以直接运算</span></span><br><span class="line">     </span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="附：在VScode中导入Eigen库"><a href="#附：在VScode中导入Eigen库" class="headerlink" title="附：在VScode中导入Eigen库"></a>附：在VScode中导入Eigen库</h3><ul>
-<li>下载<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen库</a>，解压至项目文件夹，重命名为eigen3；</li>
-<li>command + shift + p，选择 C/C++:Edit Configurations(JSON)；</li>
-<li>在 “includePath” 中 添加路径 “/ProjectFolder/eigen3/“，重启VScode；</li>
-</ul>
-<p><strong>注意事项</strong></p>
-<p>如果使用<code>std::vector</code>中的<code>emplace_back</code>向稀疏矩阵中添加元素，可能会因为C++11的问题报错 “No member named emplace_back “，可以参考：</p>
-<ul>
-<li><a href="https://android.developreference.com/article/21838811/C%2b%2b+compiler%3a+&#39;class+std%3a%3avector+&gt;&#39;+has+no+member+named+&#39;emplace_back&#39;">C++ compiler: ‘class std::vector &gt;’ has no member named ‘emplace_back’  -  c++</a></li>
-<li><a href="https://stackoom.com/question/3swti/%E5%A6%82%E4%BD%95%E5%BC%BA%E5%88%B6g-%E4%BB%85%E7%BC%96%E8%AF%91c-%E6%A0%87%E5%87%86">How to force g++ to compile c++11 standard only?</a></li>
-</ul>
+<h2 id="代码环境配置"><a href="#代码环境配置" class="headerlink" title="代码环境配置"></a>代码环境配置</h2><p>代码环境配置与第一次相同</p>
+<ol>
+<li>下载，解压，CMake代码；</li>
+<li>补全 HodgeDecomposition.cpp 文件，并在 Xcode 中 build项目；</li>
+<li>打开 Terminal，cd 至 /build/hodge_decomposition，输入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Debug/HodgeDecomposition  ../../data/eight/eight.m ../../data/eight/eight.open.m ../../textures/coordinate_256.bmp</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>即可看到如下结果</p>
+<p><center class="half"></center></p>
+<p><figure>
+<img src="/2021/01/04/CCGhw-3/eight1.png" width="50%" alt="***" align="left">
+<img src="/2021/01/04/CCGhw-3/eight2.png" width="50%" alt="***" align="right">
+</figure></p>
+<p><center></center></p>
+<p><center> 曲面上拉回的等温坐标 <center></center></center></p>
+<h2 id="代码补全思路"><a href="#代码补全思路" class="headerlink" title="代码补全思路"></a>代码补全思路</h2><p>第三次作业要求补全 HodgeDecomposition.cpp 文件。</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>与第一次作业相同，HodgeDecomposition.h 定义了适用于 HodgeDecomposition.cpp 的点、边、半边、面的类。</p>
+<h3 id="代码补全思路-1"><a href="#代码补全思路-1" class="headerlink" title="代码补全思路"></a>代码补全思路</h3><p>本次作业是通过 Hodge 分解理论来得到曲面上的调和 1-形式，进而得到曲面上的全纯 1-形式。其大致流程如下：</p>
+<ol>
+<li><p>调和 1-形式的计算.</p>
+<blockquote>
+<p> 首先计算下同调群 $H_1(\mathcal{T},\mathbb{R})$ 的基底 $\{\gamma_1, \dots, \gamma_{2g}\}$ i.e. $\pi_1({\mathcal{T}})$ 的基底；然后计算上同调群 $H_1(\mathcal{T},\mathbb{R})$ 的基底 $\{\gamma_1, \dots, \gamma_{2g}\}$ i.e. $\gamma_k$ 的特征形式 (参见书 5.7 节)；每一个 $\eta_k$<br>是闭的但不一定是调和的，考虑 $\eta_k +d f_k$，通过求解 $\delta(\eta_k +d f_k) = 0$ 即可得到调和 1-形式群的基底 $\tau_k := \eta_k +d f_k,(k = 1,\dots,2g).$ 该部分对应代码中的 random_harmonic_form() 函数。</p>
+</blockquote>
+</li>
+<li><p>全纯 1-形式的计算.</p>
+<blockquote>
+<p>调和 1-形式群的基底为 $\{\tau_1, \dots, \tau_{2g}\}$，每个调和 1-形式的共轭 1-形式仍是调和的，并且它们共同构成全纯 1-形式群的基底</p>
+<script type="math/tex; mode=display">
+\{\tau_1 + \sqrt{-1}*\tau_1, \dots, \tau_2g + \sqrt{-1}*\tau_2g\}.</script><p>要计算 $<em>\tau_k$ 可以假设 $</em>\tau_k = \sum_{j=1}^{2g}\lambda_{ij}\tau_j$。Slides 中给出了 $\tau_i \wedge \tau_j$ 和 $\tau_i \wedge <em>\tau_j$ 的计算方法。于是，由下面的线性方程组即可求得 $</em>\tau_k$.</p>
+<script type="math/tex; mode=display">
+\int_{\mathcal{T}}\tau_i \wedge *\tau_j = \sum_{k = 1}^{2g}\lambda_{jk}\int_{\mathcal{T}} \tau_i \wedge \tau_k, \quad 1\leq i,j \leq 2g.</script><p>这样，就得到了曲面上的全纯 1-形式群的基底。</p>
+</blockquote>
+</li>
+<li><p>全纯 1-形式的应用.</p>
+<blockquote>
+<p>对于一个全纯 1-形式 $\omega$，给定点 $p$，通过定义函数 </p>
+<script type="math/tex; mode=display">
+f(q) = \int_p^q \omega ,\quad(TBS)</script><p>可以将平面上的直角坐标系拉回到曲面上，如上图所示。<br>全纯 1-形式还可以用来计算拓扑环带的典范共形映射，代码中没有设计，但 slides 和书中有详细构造方法，可自行编写。</p>
+</blockquote>
+</li>
+</ol>
+<p>根据 slides 中的公式可以很容易的补全代码，注意正负号即可。值得一提的是，代码中许多已给的函数具有借鉴意义，可以精读一下。</p>
 
       
     </div>
@@ -503,12 +511,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/08/05/C++大补丸3/">C++大补丸3</a></p>
+  <p><span>本文标题:</span><a href="/2021/01/04/CCGhw-3/">CCG第三次作业</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Huag 的个人博客">Huag</a></p>
-  <p><span>发布时间:</span>2020年08月05日 - 15:23</p>
-  <p><span>最后更新:</span>2020年08月05日 - 15:32</p>
-  <p><span>原始链接:</span><a href="/2020/08/05/C++大补丸3/" title="C++大补丸3">http://huagliu.github.io/2020/08/05/C++大补丸3/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://huagliu.github.io/2020/08/05/C++大补丸3/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2021年01月04日 - 13:54</p>
+  <p><span>最后更新:</span>2021年01月04日 - 23:03</p>
+  <p><span>原始链接:</span><a href="/2021/01/04/CCGhw-3/" title="CCG第三次作业">http://huagliu.github.io/2021/01/04/CCGhw-3/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://huagliu.github.io/2021/01/04/CCGhw-3/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -537,12 +545,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/C-基础/" rel="tag"><i class="fa fa-tag"></i> C++基础</a>
-          
-        </div>
-      
 
       
       
@@ -552,8 +554,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/05/CCGhw-2/" rel="next" title="CCG第二次作业">
-                <i class="fa fa-chevron-left"></i> CCG第二次作业
+              <a href="/2020/12/22/安装及使用detri2软件/" rel="next" title="安装及使用detri2软件">
+                <i class="fa fa-chevron-left"></i> 安装及使用detri2软件
               </a>
             
           </div>
@@ -561,10 +563,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/12/09/Mac系统基本知识/" rel="prev" title="Mac系统基本知识">
-                Mac系统基本知识 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -703,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-下快速设置-VScode-launch-json"><span class="nav-number">1.</span> <span class="nav-text">Mac 下快速设置 VScode launch.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-运算符号"><span class="nav-number">2.</span> <span class="nav-text">C 运算符号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增量运算符（-）"><span class="nav-number">2.1.</span> <span class="nav-text">增量运算符（++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合赋值"><span class="nav-number">2.2.</span> <span class="nav-text">复合赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算优先级"><span class="nav-number">2.3.</span> <span class="nav-text">计算优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eigen库稀疏矩阵"><span class="nav-number">3.</span> <span class="nav-text">Eigen库稀疏矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本稀疏矩阵操作"><span class="nav-number">3.1.</span> <span class="nav-text">基本稀疏矩阵操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附：在VScode中导入Eigen库"><span class="nav-number">3.2.</span> <span class="nav-text">附：在VScode中导入Eigen库</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码环境配置"><span class="nav-number">1.</span> <span class="nav-text">代码环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码补全思路"><span class="nav-number">2.</span> <span class="nav-text">代码补全思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码补全思路-1"><span class="nav-number">2.2.</span> <span class="nav-text">代码补全思路</span></a></li></ol></li></ol></div>
             
 
           </div>
