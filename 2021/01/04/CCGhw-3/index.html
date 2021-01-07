@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/uvValue.png">
 <meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/zoominBad.png">
 <meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/zoominGood.png">
-<meta property="og:updated_time" content="2021-01-07T16:27:28.000Z">
+<meta property="og:updated_time" content="2021-01-07T16:49:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCG第三次作业">
 <meta name="twitter:description" content="2020年暑假，顾险峰教授于线上讲授计算共形几何系列课程，本文记录了第三次作业的实现过程。本文框架：  代码环境配置； 代码补全思路。">
@@ -475,9 +475,9 @@
 <img src="/2021/01/04/CCGhw-3/texture2.png" width="50%" alt="***" align="right">
 </figure></p>
 <p><center></center></p>
-<p><center> 曲面上拉回的等温坐标 <center></center></center></p>
-<p>图中显示出等温坐标有退化情形，即没有全局定义的正交网，由 Poincare-Hopf 定理可知这是由拓扑带来的限制。我们可以通过全纯 1-形式群的基底分别拉回正交网，使这一族正交网拼起来覆盖整个曲面。</p>
-<p>press ‘n’ 可以得到其他全纯 1-形式基底下拉回的等温坐标</p>
+<p><center> 曲面上的拉回正交网 <center></center></center></p>
+<p>图中显示出拉回的正交网有退化情形，即没有全局定义的拉回正交网，由 Poincare-Hopf 定理可知这是由拓扑带来的限制。我们可以通过全纯 1-形式群的基底分别拉回正交网，使这一族正交网拼起来覆盖整个曲面。</p>
+<p>press ‘n’ 可以得到其他全纯 1-形式基底的拉回正交网</p>
 <p><center class="half"></center></p>
 <p><figure>
 <img src="/2021/01/04/CCGhw-3/holo1.png" width="50%" alt="***" align="left">
@@ -497,17 +497,17 @@
 <ol>
 <li><p>调和 1-形式的计算.</p>
 <blockquote>
-<p> 首先计算下同调群 $H_1(\mathcal{T},\mathbb{R})$ 的基底 $\{\gamma_1, \dots, \gamma_{2g}\}$ i.e. $\pi_1({\mathcal{T}})$ 的基底；然后计算上同调群 $H_1(\mathcal{T},\mathbb{R})$ 的基底 $\{\gamma_1, \dots, \gamma_{2g}\}$ i.e. $\gamma_k$ 的特征形式 (参见书 5.7 节)；每一个 $\eta_k$<br>是闭的但不一定是调和的，考虑 $\eta_k +d f_k$，通过求解 $\delta(\eta_k +d f_k) = 0$ 即可得到调和 1-形式群的基底 $\tau_k := \eta_k +d f_k,(k = 1,\dots,2g).$ 该部分对应代码中的 random_harmonic_form() 函数。</p>
+<p> 首先计算下同调群 $H_1(\mathcal{T},\mathbb{R})$ 的基底 $\{\gamma_1, \dots, \gamma_{2g}\}$ i.e. $\pi_1({\mathcal{T}})$ 的基底；然后计算上同调群 $H^1(\mathcal{T},\mathbb{R})$ 的基底 $\{\eta_1, \dots, \eta_{2g}\}$ i.e. $\eta_k$ 的特征形式 (参见书 5.7 节)；每一个 $\eta_k$<br>是闭的但不一定是调和的，考虑 $\eta_k +d f_k$，通过求解 $\delta(\eta_k +d f_k) = 0$ 即可得到调和 1-形式群的基底 $\tau_k := \eta_k +d f_k,(k = 1,\dots,2g).$ 该部分对应代码中的 random_harmonic_form() 函数。</p>
 </blockquote>
 </li>
 <li><p>全纯 1-形式的计算.</p>
 <blockquote>
 <p>调和 1-形式群的基底为 $\{\tau_1, \dots, \tau_{2g}\}$，每个调和 1-形式的共轭 1-形式仍是调和的，并且它们共同构成全纯 1-形式群的基底</p>
 <script type="math/tex; mode=display">
-\{\tau_1 + \sqrt{-1}*\tau_1, \dots, \tau_{2g} + \sqrt{-1}*\tau_{2g}\}.</script><p>要计算 $ *\tau_{k}$ 可以假设 </p>
+\{\tau_1 + \sqrt{-1}*\tau_1, \dots, \tau_{2g} + \sqrt{-1}*\tau_{2g}\}.</script><p>要计算 $ *\tau_{j}$ 可以假设 </p>
 <script type="math/tex; mode=display">
-*\tau_{i} = \sum_{j=1}^{2g}\lambda_{ij} \tau_{j} .</script><p>Slides 中给出了 $ \tau_{i} \wedge \tau_{j} $ 和 $ \tau_{i} \wedge *\tau_{j} $ 的计算方法。</p>
-<p>于是，由下面的线性方程组即可求得 $*\tau_{k}$</p>
+*\tau_{j} = \sum_{k=1}^{2g}\lambda_{jk} \tau_{k} .</script><p>Slides 中给出了 $ \tau_{i} \wedge \tau_{k} $ 和 $ \tau_{i} \wedge *\tau_{j} $ 的计算方法。</p>
+<p>于是，由下面的线性方程组即可求得 $*\tau_{j}$</p>
 <script type="math/tex; mode=display">
 \int_{\mathcal{T}}\tau_i \wedge *\tau_j = \sum_{k = 1}^{2g}\lambda_{jk}\int_{\mathcal{T}} \tau_i \wedge \tau_k, \quad 1\leq i,j \leq 2g.</script><p>这样，就得到了曲面上的全纯 1-形式群的基底。该部分对应代码中的 calc_holo_1_form() 函数。</p>
 </blockquote>
@@ -528,7 +528,7 @@ f(q) = \int_p^q \omega,</script><p>可以将复平面上的直角坐标系拉回
 <img src="/2021/01/04/CCGhw-3/uvPlane.png" width="50%" alt="***" align="right">
 </figure></p>
 <p><center></center></p>
-<p><center> 拉回的等温坐标和平面上的直角坐标<center></center></center></p>
+<p><center> 拉回正交网和平面上的直角坐标<center></center></center></p>
 <p><strong>值得一提的是</strong>，代码的 data 中给了两个网格：eight.m 和 eight.open.m，如下图所示</p>
 <p><img src="/2021/01/04/CCGhw-3/twoMesh.png" alt="twoMesh"></p>
 <p><center> eight.m (黑色) 和 eight.open.m (粉色) <center></center></center></p>
@@ -570,7 +570,7 @@ f(q) = \int_p^q \omega,</script><p>可以将复平面上的直角坐标系拉回
   <p><span>本文标题:</span><a href="/2021/01/04/CCGhw-3/">CCG第三次作业</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Huag 的个人博客">Huag</a></p>
   <p><span>发布时间:</span>2021年01月04日 - 13:54</p>
-  <p><span>最后更新:</span>2021年01月08日 - 00:27</p>
+  <p><span>最后更新:</span>2021年01月08日 - 00:49</p>
   <p><span>原始链接:</span><a href="/2021/01/04/CCGhw-3/" title="CCG第三次作业">http://huagliu.github.io/2021/01/04/CCGhw-3/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://huagliu.github.io/2021/01/04/CCGhw-3/" aria-label="复制成功！"></i></span>
   </p>
