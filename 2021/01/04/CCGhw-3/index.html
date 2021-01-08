@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/uvValue.png">
 <meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/zoominBad.png">
 <meta property="og:image" content="http://huagliu.github.io/2021/01/04/CCGhw-3/zoominGood.png">
-<meta property="og:updated_time" content="2021-01-07T16:49:08.000Z">
+<meta property="og:updated_time" content="2021-01-08T01:31:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCG第三次作业">
 <meta name="twitter:description" content="2020年暑假，顾险峰教授于线上讲授计算共形几何系列课程，本文记录了第三次作业的实现过程。本文框架：  代码环境配置； 代码补全思路。">
@@ -476,8 +476,8 @@
 </figure></p>
 <p><center></center></p>
 <p><center> 曲面上的拉回正交网 <center></center></center></p>
-<p>图中显示出拉回的正交网有退化情形，即没有全局定义的拉回正交网，由 Poincare-Hopf 定理可知这是由拓扑带来的限制。我们可以通过全纯 1-形式群的基底分别拉回正交网，使这一族正交网拼起来覆盖整个曲面。</p>
-<p>press ‘n’ 可以得到其他全纯 1-形式基底的拉回正交网</p>
+<p>图中显示出拉回的等温坐标有退化情形，即没有全局定义的等温坐标，由 Poincare-Hopf 定理可知这是由拓扑带来的限制。我们可以通过全纯 1-形式群的基底分别拉回正交网，使这一族正交网拼起来覆盖整个曲面。</p>
+<p>press ‘n’ 可以得到其他全纯 1-形式基底的拉回的等温坐标</p>
 <p><center class="half"></center></p>
 <p><figure>
 <img src="/2021/01/04/CCGhw-3/holo1.png" width="50%" alt="***" align="left">
@@ -516,9 +516,9 @@
 <p>这两部分根据 slides 中的公式可以很容易的补全代码，注意正负号即可。</p>
 <ol>
 <li>全纯 1-形式的应用.<blockquote>
-<p>对于一个全纯 1-形式 $\omega$，给定点 $p\in U$，通过定义函数 $f:U\rightarrow \mathbb{C}$</p>
+<p>对于一个全纯 1-形式 $\omega$，给定点 $p\in U$，定义函数 $f:U\rightarrow \mathbb{C}$</p>
 <script type="math/tex; mode=display">
-f(q) = \int_p^q \omega,</script><p>可以将复平面上的直角坐标系拉回到曲面上（见下图），该部分对应代码中的 integration() 函数。<br>全纯 1-形式还可以用来计算拓扑环带的典范共形映射，代码中没有涉及，但 slides 和书中有详细构造方法，可自行编写。</p>
+f(q) = \int_p^q \omega,</script><p>可知 $f$ 是良定的，即<a href="http://fdjpkc.fudan.edu.cn/_upload/article/files/35/8d/21a9a6d24aaea9555bc3738f04ce/8b90dc57-e816-4aa8-912e-560f9117aec3.pdf">不依赖于路径</a>。由于 $\omega$ 是全纯 1-形式，故其变上限积分 $f$ 是全纯的，从而可以将复平面上的直角坐标系共形地拉回到曲面上（见下图），该部分对应代码中的 integration() 函数。<br>全纯 1-形式还可以用来计算拓扑环带的典范共形映射，代码中没有涉及，但 slides 和书中有详细构造方法，可自行编写。</p>
 </blockquote>
 </li>
 </ol>
@@ -528,7 +528,7 @@ f(q) = \int_p^q \omega,</script><p>可以将复平面上的直角坐标系拉回
 <img src="/2021/01/04/CCGhw-3/uvPlane.png" width="50%" alt="***" align="right">
 </figure></p>
 <p><center></center></p>
-<p><center> 拉回正交网和平面上的直角坐标<center></center></center></p>
+<p><center> 等温坐标和平面上的直角坐标<center></center></center></p>
 <p><strong>值得一提的是</strong>，代码的 data 中给了两个网格：eight.m 和 eight.open.m，如下图所示</p>
 <p><img src="/2021/01/04/CCGhw-3/twoMesh.png" alt="twoMesh"></p>
 <p><center> eight.m (黑色) 和 eight.open.m (粉色) <center></center></center></p>
@@ -570,7 +570,7 @@ f(q) = \int_p^q \omega,</script><p>可以将复平面上的直角坐标系拉回
   <p><span>本文标题:</span><a href="/2021/01/04/CCGhw-3/">CCG第三次作业</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Huag 的个人博客">Huag</a></p>
   <p><span>发布时间:</span>2021年01月04日 - 13:54</p>
-  <p><span>最后更新:</span>2021年01月08日 - 00:49</p>
+  <p><span>最后更新:</span>2021年01月08日 - 09:31</p>
   <p><span>原始链接:</span><a href="/2021/01/04/CCGhw-3/" title="CCG第三次作业">http://huagliu.github.io/2021/01/04/CCGhw-3/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://huagliu.github.io/2021/01/04/CCGhw-3/" aria-label="复制成功！"></i></span>
   </p>
