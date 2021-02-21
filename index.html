@@ -470,6 +470,253 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2021/01/24/Linux虚拟机安装及问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huag">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUAG ZONE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/24/Linux虚拟机安装及问题/" itemprop="url">Linux 虚拟机安装及问题</a></h1>
+        
+
+        <div class="post-meta">
+	
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-24T00:00:00+08:00">
+                2021-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>虚拟机可以方便的做实验——修改、测试，不必害怕出问题，可以随便折腾！出问题了大不了换一个虚拟机，原来的系统，没有任何影响。</p>
+<p>本文记录了如何在 Windows 系统中安装 Linux 虚拟机的过程及相关问题。</p>
+<h2 id="安装虚拟机和-Ubuntu-系统"><a href="#安装虚拟机和-Ubuntu-系统" class="headerlink" title="安装虚拟机和 Ubuntu 系统"></a>安装虚拟机和 Ubuntu 系统</h2><p>虚拟机的安装过程主要参考<a href="https://blog.csdn.net/weixin_44145300/article/details/88717492">这篇文章</a>。其大致流程为：</p>
+<ol>
+<li>安装 VMware 软件；</li>
+<li>在 VMware 上安装 Linux 系统；</li>
+</ol>
+<p><strong>需要注意的是</strong>：</p>
+<ul>
+<li>VMware 软件可以不安装在 C  盘;</li>
+<li>Linux 的硬盘空间分配后不可改动，而内存空间和处理器内核总数可以再改动；</li>
+<li>安装过程中若出现提示：“此主机支持 Intel VT-x，但 Intel VT-x处于禁用状态”，可以参考<a href="https://blog.csdn.net/abcssy/article/details/74905406">这篇文章</a>，在 BIOS 中开启 Virtualization.</li>
+</ul>
+<h2 id="配置虚拟机网络"><a href="#配置虚拟机网络" class="headerlink" title="配置虚拟机网络"></a>配置虚拟机网络</h2><p>成功安装 Vmware 虚拟机后，Win 的网络设置中可以找到两块网卡。 物理网卡 VMnet1 和虚拟网卡 VMnet8。 物理网卡，连接WLAN。 虚拟网卡VMnet8，连接内部LAN。一般虚拟机上网有两种方式：桥接模式和 NAT 模式。桥接模式配置更为简单，不过当电脑更换网络（链接不同 WIFI）之后，就需要更改虚拟机的配置，因此这种方式适合网络比较少更换的台式机；NAT 方式更适合笔记本电脑，这是因为使用的虚拟网卡并静态配置 ip 地址不会改变。</p>
+<p>桥接模式和 NAT 模式的配置方法可以参考<a href="https://zhuanlan.zhihu.com/p/121008708">这个文章</a>。</p>
+<h2 id="设置中文系统及安装拼音输入法"><a href="#设置中文系统及安装拼音输入法" class="headerlink" title="设置中文系统及安装拼音输入法"></a>设置中文系统及安装拼音输入法</h2><p>该部分分为以下几步：</p>
+<ol>
+<li>安装中文支持包：点击 settings -&gt; language support，然后点击 Install/Remove Languages，选择 chinese(simplified) -&gt; apply</li>
+<li><p>安装 ibus 输入法：在 Terminal 中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换到 ibus 框架并安装拼音引擎：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">im-config -s ibus</span><br><span class="line">sudo apt-get install ibus-pinyin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入如下命令打开 ibus 设置，并在 input method 中添加刚刚安装的拼音输入法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ibus-setup</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后在系统设置的 Language 中将 Chinese(Pinyin) 添加到 input sources 即可。</p>
+</li>
+</ol>
+<p>该部分参考<a href="https://www.jianshu.com/p/3f793b847e9e">这篇文章</a>和<a href="https://www.jianshu.com/p/ad2a68a3d820">这篇文章</a>。</p>
+<h2 id="Linux-中的一些命令及问题"><a href="#Linux-中的一些命令及问题" class="headerlink" title="Linux 中的一些命令及问题"></a>Linux 中的一些命令及问题</h2><h3 id="什么是-SSH"><a href="#什么是-SSH" class="headerlink" title="什么是 SSH"></a>什么是 SSH</h3><p>该部分参考<a href="https://www.jianshu.com/p/10023495fba9">这篇文章</a>。</p>
+<p>简单说，<strong>SSH 是一种网络协议</strong>，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH 协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者 Tatu Ylonen 设计了 SSH 协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为 Linux 系统的标准配置。</p>
+<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。整个过程是这样的：</p>
+<ol>
+<li>远程主机收到用户的登录请求，把自己的公钥发给用户。</li>
+<li>用户使用这个公钥，将登录密码加密后，发送回来。</li>
+<li>远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</li>
+</ol>
+<p>这个过程本身是安全的，但是实施的时候存在一个风险：如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像 https 协议，SSH 协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。可以设想，如果攻击者插在用户与远程主机之间（比如在公共的 wif i区域），用伪造的公钥，获取用户的登录密码。再用这个密码登录远程主机，那么 SSH 的安全机制就荡然无存了。这种风险就是著名的<strong>“中间人攻击”（Man-in-the-middle attack）</strong>。</p>
+<h3 id="apt-是什么"><a href="#apt-是什么" class="headerlink" title="apt 是什么"></a>apt 是什么</h3><p>Advanced Packaging Tool（apt）是 Linux 下的一款安装包管理工具。APT 是一个客户/服务器系统。在服务器上先复制所有 DEB 包（DEB 是 Debian 软件包格式的文件扩展名），然后用 APT 的分析工具（genbasedir）根据每个 DEB 包的包头（Header）信息对所有的 DEB 包进行分析，并将该分析结果记录在一个文件中，这个文件称为 DEB 索引清单，APT 服务器的 DEB 索引清单置于 base 文件夹内。一旦 APT 服务器内的 DEB 有所变动，一定要使用 genbasedir 产生新的 DEB 索引清单。客户端在进行安装或升级时先要查询 DEB 索引清单，从而可以获知所有具有依赖关系的软件包，并一同下载到客户端以便安装。当客户端需要安装、升级或删除某个软件包时，客户端计算机取得 DEB 索引清单压缩文件后，会将其解压置放于 /var/state/apt/lists/，而客户端使用 apt-get install 或 apt-get upgrade 命令的时候，就会将这个文件夹内的数据和客户端计算机内的 DEB 数据库比对，知道哪些 DEB 已安装、未安装或是可以升级的。</p>
+<h3 id="apt-get-update-和-apt-upgrade-有什么区别"><a href="#apt-get-update-和-apt-upgrade-有什么区别" class="headerlink" title="apt-get update 和 apt-upgrade 有什么区别"></a>apt-get update 和 apt-upgrade 有什么区别</h3><p>在windows下安装软件，我们只需要双击 .exe 文件即可。但在 Linux 下，不是这样的。每个 Linux 的发行版，比如 Ubuntu，都会维护一个自己的软件仓库，我们常用的几乎所有软件都在这里面。这里面的软件绝对安全，而且绝对的能正常安装。</p>
+<p>如何安装这些软件呢？在 Ubuntu 下，我们维护一个源列表，源列表里面都是一些网址信息，这每一条网址就是一个源，这个地址指向的数据标识着这台源服务器上有哪些软件可以安装使用。可以通过如下命令查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure></p>
+<p>当在这个文件里加入或者注释（加#）掉一些源并保存后。我们的源列表里指向的软件就会增加或减少。之后要做的就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>这个命令，会访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑。我们在软件包管理器里看到的软件列表，都是通过update命令更新的。update后，可能需要upgrade一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
+<p>这个命令，会把本地已安装的软件，与刚下载的软件列表里对应软件进行对比，如果发现已安装的软件版本太低，就会提示你更新。如果你的软件都是最新版本，会提示你升级了几个软件包，新安装了几个软件包，要卸载几个软件包，有几个软件包未被升级。</p>
+<p>总而言之，update是更新软件列表，upgrade是更新软件。该部分参考<a href="https://www.cnblogs.com/fenglongyu/p/8654991.html">这篇文章</a>。</p>
+<h3 id="解决-E-Could-not-get-lock-var-lib-apt-lists-lock"><a href="#解决-E-Could-not-get-lock-var-lib-apt-lists-lock" class="headerlink" title="解决 E: Could not get lock /var/lib/apt/lists/lock"></a>解决 E: Could not get lock /var/lib/apt/lists/lock</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>的时候遇到了如下问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/apt/lists/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock directory /var/lib/apt/lists/</span><br></pre></td></tr></table></figure></p>
+<p>表明当前有某个进程正在apt-get，然而我并没有使用任何命令，于是需要 kill 掉进程。参考<a href="https://www.cnblogs.com/qq952693358/p/6537846.html">这个文章</a>，解决方法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br></pre></td></tr></table></figure></p>
+<h2 id="VMware-虚拟机遇到的问题"><a href="#VMware-虚拟机遇到的问题" class="headerlink" title="VMware 虚拟机遇到的问题"></a>VMware 虚拟机遇到的问题</h2><h3 id="Linux-虚拟机开机黑屏"><a href="#Linux-虚拟机开机黑屏" class="headerlink" title="Linux 虚拟机开机黑屏"></a>Linux 虚拟机开机黑屏</h3><p>前后尝试了 3 种方法，不知道哪个最终起效了，参考了<a href="https://blog.csdn.net/qq_37074001/article/details/102645024">这个文章</a></p>
+<p><strong>方法一</strong></p>
+<p>用管理员身份打开 cmd， 输入 netsh winsock reset，重启计算机。(未解决，仍黑屏)</p>
+<p><strong>方法三</strong></p>
+<p>打开 VMware 的首选项，选择设备，取消 “启用虚拟打印机” 勾选，重启。(未解决，仍黑屏)</p>
+<p><strong>方法三</strong></p>
+<p>在虚拟机的设置中，取消显示器的 3D 图像勾选，重启。(成功)</p>
+<p>网友提示：<strong>虚拟机在用完后最好挂起，不要关机！！！</strong></p>
+<h3 id="VMware-Workstation-报错"><a href="#VMware-Workstation-报错" class="headerlink" title="VMware Workstation 报错"></a>VMware Workstation 报错</h3><p>当虚拟机死机时，我们可以通过 Win 任务管理器杀死进程。再次打开虚拟机时经常遇到如下</p>
+<p><strong>问题</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">VMware Workstation 无法连接到虚拟机，请确保您有权运行该程序，访问该程序使用的所有目录以及访问所有历史文件目录。</span><br><span class="line"></span><br><span class="line">未能将管道连接到虚拟机：所有管道范例都在使用中。</span><br></pre></td></tr></table></figure>
+<p><strong><a href="https://blog.csdn.net/qq_32837267/article/details/104565395">解决方法</a></strong>：</p>
+<p>打开 Win 系统中的“服务”，找到 VMware Workstation Server，右键属性，将启动类型换成 (自动延时启动)，然后确认退出，重启电脑，再次以管理员身份打开电脑即可。</p>
+<h3 id="Win-与虚拟机无法拖拽文件"><a href="#Win-与虚拟机无法拖拽文件" class="headerlink" title="Win 与虚拟机无法拖拽文件"></a>Win 与虚拟机无法拖拽文件</h3><p>右键 VMware 中虚拟机选项卡，选择“安装 VMware Tools”。打开 Linux 文件夹，可以看到一个 VMware Tools 的驱动盘，将里面的压缩文件拷贝出来。解压该文件可以看到一个名叫 “vmware-tools-distrib” 的文件。在 Terminal 中 cd 至该文件夹，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
+<p>一路回车即可完成安装。上述安装过程参考了<a href="https://blog.csdn.net/engerla/article/details/83009677">这个</a> 和 <a href="https://blog.csdn.net/sinat_28371057/article/details/109152328">这个</a>。</p>
+<p>重启虚拟机之后，就可以在 Win 和虚拟机之间复制粘贴了，不过传输速度极慢，遂采用共享文件夹的方法。</p>
+<p>首先在 Win 中新建一个 myshare 文件夹；之后打开 VMware 中虚拟机选项卡，选择设置；然后在“选项 — 共享文件夹” 中选择“启总是用”，并添加 myshare 文件夹路径即可。</p>
+<p>传输文件文件时，将 Win 中文件拖至 myshare 中，然后打开虚拟机中的 /mnt/hgfs/myshare 文件夹，即可看到共享的文件。打开 mnt/hgfs/myshare 文件夹的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nautilus /mnt/hgfs/myshare</span><br></pre></td></tr></table></figure>
+<p>上述过程参考了<a href="https://blog.csdn.net/love20165104027/article/details/83377758">这个博客</a>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2021/01/14/CCGhw-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1932,194 +2179,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huagliu.github.io/2020/07/24/C++大补丸1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huag">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HUAG ZONE">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/24/C++大补丸1/" itemprop="url">C++大补丸1</a></h1>
-        
-
-        <div class="post-meta">
-	
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-24T17:22:21+08:00">
-                2020-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  5.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  19
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>编程小白在此整理一些C++基础知识。<br>本文框架：</p>
-<ul>
-<li>C++与C语言关系</li>
-<li>编译过程</li>
-<li>GCC和LLVM</li>
-<li>Xcode 工程结构</li>
-<li>CMake</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/07/24/C++大补丸1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2170,7 +2229,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2181,7 +2240,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2192,7 +2251,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
